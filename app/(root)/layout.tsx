@@ -5,7 +5,6 @@ import './globals.css';
 import { Providers } from './providers';
 import { ReactNode } from 'react';
 import { Flex, Box } from '@chakra-ui/react';
-import Sidebar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import Navbar from '../../components/Navbar';
 

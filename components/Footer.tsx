@@ -23,18 +23,24 @@ const Footer = () => {
         </Text>
 
         {/* Right Side */}
-        <HStack spacing={{ base: 4, md: 8 }} align="start">
-          <VStack align="center" spacing={1}>
+        <Stack
+          direction={{ base: 'column', md: 'row' }}
+          spacing={{ base: 4, md: 8 }}
+          alignItems="center"
+          justifyContent="center"
+          textAlign="center"
+        >
+          <VStack spacing={1}>
             <Text fontWeight="bold">Call</Text>
             <Text>+66 95-616-3515</Text>
           </VStack>
-          <VStack align="center" spacing={1}>
+          <VStack spacing={1}>
             <Text fontWeight="bold">Write</Text>
             <Text>peeke0rr@gmail.com</Text>
           </VStack>
-          <VStack align="center" spacing={1}>
+          <VStack spacing={1}>
             <Text fontWeight="bold">Follow</Text>
-            <HStack spacing={3}>
+            <HStack spacing={3} justifyContent="center">
               <Link href="https://facebook.com" color="teal.300" isExternal>
                 Facebook
               </Link>
@@ -49,7 +55,7 @@ const Footer = () => {
               </Link>
             </HStack>
           </VStack>
-        </HStack>
+        </Stack>
       </Stack>
     </Box>
   );

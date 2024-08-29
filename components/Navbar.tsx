@@ -2,11 +2,11 @@ import { Box, VStack } from '@chakra-ui/react';
 import Link from 'next/link';
 import React from 'react';
 
-function Sidebar() {
+function Navbar() {
   return (
     <Box
       as="nav"
-      width={{ base: 'full', md: 250 }}
+      width={{ base: 'full', md: '250px' }}
       bg="blue.700"
       color="white"
       p={5}
@@ -15,15 +15,12 @@ function Sidebar() {
         <Link href="/" passHref>
           About me
         </Link>
-
         <Link href="/resume" passHref>
           Resume
         </Link>
-
         <Link href="/project" passHref>
           Project
         </Link>
-
         <Link href="/contact" passHref>
           Contact
         </Link>
@@ -32,4 +29,4 @@ function Sidebar() {
   );
 }
 
-export default Sidebar;
+export default Navbar;

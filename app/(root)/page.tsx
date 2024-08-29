@@ -30,16 +30,17 @@ export default function Home() {
         <Image
           borderRadius="full"
           boxSize="150px"
-          src=""
+          src="/images/pic-1.jpg"
           alt="Profile Image"
           mx="auto"
+          h={'auto'}
           mb={6}
         />
         <Heading size="lg" mb={2}>
-          Maya Nelson
+          Preechapong Khanmajan
         </Heading>
         <Text fontSize="md" color="gray.500" mb={6}>
-          Project Manager
+          Software Developer
         </Text>
         {/* <Flex justify="center" gap={4}>
           <Link href="#" isExternal></Link>
