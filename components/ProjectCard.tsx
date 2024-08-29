@@ -8,6 +8,8 @@ import {
   Stack,
   Tag,
   TagLabel,
+  useBreakpointValue,
+  Flex,
 } from '@chakra-ui/react';
 
 interface ProjectCardProps {
@@ -27,29 +29,42 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   tools,
   description,
 }) => {
+  // Use breakpoint value to adjust image size
+  const imageSize = useBreakpointValue({
+    base: '150px',
+    md: '200px',
+    lg: '300px',
+  });
+
   return (
     <Box
       borderWidth="1px"
       borderRadius="lg"
       overflow="hidden"
-      p={6}
-      boxShadow="lg"
-      maxW="lg"
+      p={4}
+      boxShadow="md"
+      maxW="md"
       width="100%"
+      transition="transform 0.2s"
+      _hover={{ transform: 'scale(1.05)', boxShadow: 'xl' }}
     >
-      <Image
-        src={imageUrl}
-        alt={name}
-        boxSize="300px"
-        objectFit="cover"
-        borderRadius="lg"
-      />
-      <Stack spacing={4} mt={4}>
-        <Heading as="h3" size="md">
+      {/* Centering the image */}
+      <Flex justify="center" mb={4}>
+        <Image
+          src={imageUrl}
+          alt={name}
+          boxSize={imageSize}
+          objectFit="cover"
+          borderRadius="md"
+        />
+      </Flex>
+      <Stack spacing={4}>
+        <Heading as="h3" size="lg" fontWeight="semibold">
           {name}
         </Heading>
         <Text
           fontWeight="bold"
+          fontSize="sm"
           color={
             type === 'front'
               ? 'blue.500'
@@ -64,15 +79,19 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             ? 'Backend'
             : 'Full Stack'}
         </Text>
-        <Text>{feature}</Text> {/* แสดง feature */}
-        <Stack direction="row" spacing={2}>
+        <Text fontSize="sm" color="gray.600">
+          {feature}
+        </Text>
+        <Stack direction="row" spacing={2} wrap="wrap">
           {tools.map((tool, index) => (
-            <Tag key={index} variant="solid" colorScheme="teal">
+            <Tag key={index} variant="solid" colorScheme="teal" size="sm">
               <TagLabel>{tool}</TagLabel>
             </Tag>
           ))}
         </Stack>
-        <Text mt={2}>{description}</Text>
+        <Text fontSize="sm" mt={2} color="gray.700">
+          {description}
+        </Text>
       </Stack>
     </Box>
   );

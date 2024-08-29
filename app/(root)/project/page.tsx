@@ -73,7 +73,7 @@ const mockProjects = [
   {
     name: 'Tourist Attraction',
     imageUrl: 'https://via.placeholder.com/300',
-    type: 'full',
+    type: 'front',
     feature: 'Landing Page, Searching & Filtering',
     tools: ['Node.js', 'React', 'Javascript', 'HTML', 'CSS'],
     description:
