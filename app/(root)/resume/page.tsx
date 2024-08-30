@@ -29,7 +29,7 @@ const data = [
 
 export default function Resume() {
   return (
-    <Box p={{ base: 4, md: 8 }} maxW="1200px" mx="auto">
+    <Box p={{ base: 4, md: 8 }} maxW="full" mx="auto">
       {/* Work Experience Section */}
       <Box
         mb={10}
@@ -39,7 +39,13 @@ export default function Resume() {
         p={{ base: 6, md: 8 }}
         boxShadow="lg"
       >
-        <Heading as="h2" size="lg" mb={6} textAlign="center" color="blue.700">
+        <Heading
+          as="h2"
+          size={{ base: 'md', md: 'lg' }}
+          mb={6}
+          textAlign="center"
+          color="blue.700"
+        >
           W O R K &nbsp; E X P E R I E N C E
         </Heading>
         <VStack align="start" spacing={6}>
@@ -96,7 +102,7 @@ export default function Resume() {
           S K I L L S
         </Heading>
         <Grid
-          templateColumns={{ base: 'repeat(2, 1fr)', md: 'repeat(5, 1fr)' }}
+          templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(5, 1fr)' }}
           gap={6}
         >
           {data.map((data) => (
