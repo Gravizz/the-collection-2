@@ -10,88 +10,18 @@ import {
   Stack,
 } from '@chakra-ui/react';
 import ProjectCard from '@/components/ProjectCard';
-
-const mockProjects = [
-  {
-    name: 'Home Service',
-    imageUrl: 'https://via.placeholder.com/300',
-    type: 'full',
-    feature:
-      'Landing Page, Authentication, CRUD, Searching & Filtering, Uploading files',
-    tools: [
-      'Supabase',
-      'Stripe',
-      'Node.js',
-      'React',
-      'Javascript',
-      'HTML',
-      'TailwindCSS',
-    ],
-    description:
-      'An application that calls a technician to perform home repair services. Home repairs will provide many different services (services) according to categories such as general category, bathroom category, etc.',
-  },
-  {
-    name: 'The Collection',
-    imageUrl: 'https://via.placeholder.com/300',
-    type: 'front',
-    feature: 'Landing Page, Searching & Filtering',
-    tools: ['Next.js', 'Typescript', 'HTML', 'Chakra UI'],
-    description:
-      "A personal project organizer that makes it easy to keep all my projects in one place. Whether I'm working on personal tasks, The Collection helps me track and sort my projects, keeping everything tidy and easy to find so I can reach my goals.",
-  },
-  {
-    name: 'Leave Request System',
-    imageUrl: 'https://via.placeholder.com/300',
-    type: 'full',
-    feature:
-      'Landing Page, Searching & Filtering, Leave Request Management, Form Collection',
-    tools: ['Node.js', 'React', 'Javascript', 'HTML', 'TailwindCSS', 'MongoDB'],
-    description:
-      'This application will give you the opportunity to be lazy and chill.',
-  },
-  {
-    name: 'Banking Management',
-    imageUrl: 'https://via.placeholder.com/300',
-    type: 'full',
-    feature:
-      'Landing Page, Authentication, CRUD, 3rd Party Connection (Bank Connection and Funds Transfer)',
-    tools: [
-      'Next.js',
-      'TypeScript',
-      'Appwrite',
-      'Plaid',
-      'Dwolla',
-      'React Hook',
-      'Zod',
-      'TailwindCSS',
-      'Chart.js',
-      'ShadCn',
-    ],
-    description:
-      'A banking app that connects multiple accounts, shows real-time transactions, and enables user-to-user money transfers.',
-  },
-  {
-    name: 'Tourist Attraction',
-    imageUrl: 'https://via.placeholder.com/300',
-    type: 'front',
-    feature: 'Landing Page, Searching & Filtering',
-    tools: ['Node.js', 'React', 'Javascript', 'HTML', 'CSS'],
-    description:
-      'An application designed to help you discover tourist attractions for your vacation, allowing you to search based on keywords, location, signature features.',
-  },
-  // เพิ่มโปรเจกต์ที่เหลือได้ตามต้องการ
-];
+import { ProjectsData } from '@/utils/data';
 
 const Project = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedType, setSelectedType] = useState('');
-  const [filteredProjects, setFilteredProjects] = useState(mockProjects);
+  const [filteredProjects, setFilteredProjects] = useState(ProjectsData);
 
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value.toLowerCase();
     setSearchTerm(value);
 
-    const filtered = mockProjects.filter(
+    const filtered = ProjectsData.filter(
       (project) =>
         project.name.toLowerCase().includes(value) ||
         project.feature.toLowerCase().includes(value) ||
@@ -111,7 +41,7 @@ const Project = () => {
     const value = event.target.value;
     setSelectedType(value);
 
-    const filtered = mockProjects.filter(
+    const filtered = ProjectsData.filter(
       (project) =>
         project.name.toLowerCase().includes(searchTerm) ||
         project.feature.toLowerCase().includes(searchTerm) ||
@@ -128,7 +58,7 @@ const Project = () => {
   const handleReset = () => {
     setSearchTerm('');
     setSelectedType('');
-    setFilteredProjects(mockProjects);
+    setFilteredProjects(ProjectsData);
   };
 
   return (
@@ -160,6 +90,7 @@ const Project = () => {
             feature={project.feature}
             tools={project.tools}
             description={project.description}
+            link={project.link}
           />
         ))}
       </SimpleGrid>

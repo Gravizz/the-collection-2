@@ -10,22 +10,7 @@ import {
   Flex,
   Image,
 } from '@chakra-ui/react';
-
-const data = [
-  { id: 1, skill: 'HTML', pic: '/icon/html-icon.png' },
-  { id: 2, skill: 'JavaScript', pic: '/icon/javascript-icon.png' },
-  { id: 3, skill: 'TypeScript', pic: '/icon/typescript-icon.png' },
-  { id: 4, skill: 'CSS', pic: '/icon/css-icon.png' },
-  { id: 5, skill: 'TailwindCSS', pic: '/icon/tailwind-icon.png' },
-  { id: 6, skill: 'Chakra UI', pic: '/icon/chakraui-icon.png' },
-  { id: 7, skill: 'React', pic: '/icon/react-icon.png' },
-  { id: 8, skill: 'Next.js', pic: '/icon/nextjs-icon.svg' },
-  { id: 9, skill: 'MongoDB', pic: '/icon/mongodb-icon.png' },
-  { id: 10, skill: 'PostgreSQL', pic: '/icon/postgresql-icon.png' },
-  { id: 11, skill: 'Postman', pic: '/icon/postman-icon.png' },
-  { id: 12, skill: 'Node.js', pic: '/icon/nodejs-icon.png' },
-  { id: 13, skill: 'Git', pic: '/icon/git-icon.png' },
-];
+import { skillsData } from '@/utils/data';
 
 export default function Resume() {
   return (
@@ -105,8 +90,8 @@ export default function Resume() {
           templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(5, 1fr)' }}
           gap={6}
         >
-          {data.map((data) => (
-            <GridItem key={data.id}>
+          {skillsData.map((skill) => (
+            <GridItem key={skill.id}>
               <Button
                 variant="outline"
                 colorScheme="blue"
@@ -128,9 +113,9 @@ export default function Resume() {
                     border="1px solid"
                     borderColor="blue.300"
                   >
-                    <Image src={data.pic} alt={`${data.skill} icon`} />
+                    <Image src={skill.pic} alt={`${skill.name} icon`} />
                   </Box>
-                  <Text fontSize={{ base: 'sm', md: 'md' }}> {data.skill}</Text>
+                  <Text fontSize={'md'}> {skill.name}</Text>
                 </Flex>
               </Button>
             </GridItem>
